@@ -1,11 +1,11 @@
 package relacionamentoentreclasses;
 
-public interface AcoesLutadores {
+public interface Acoes {
 
 	void apresentar();
 	void status();
 	void ganharLuta();
 	void perderLuta();
 	void empatarLuta();
-	
+		
 }

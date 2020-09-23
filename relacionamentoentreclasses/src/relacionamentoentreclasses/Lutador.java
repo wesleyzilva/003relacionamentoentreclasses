@@ -1,6 +1,6 @@
 package relacionamentoentreclasses;
 
-public class ClasseDosLutadores implements AcoesLutadores {
+public class Lutador implements Acoes {
 
 	private String nome;
 	private String nacionalidade;
@@ -80,6 +80,7 @@ public class ClasseDosLutadores implements AcoesLutadores {
 	 */
 	private void setPeso(float peso) {
 		this.peso = peso;
+		setCategoria();
 	}
 
 	/**
@@ -89,11 +90,23 @@ public class ClasseDosLutadores implements AcoesLutadores {
 		return categoria;
 	}
 
-	/**
-	 * @param categoria the categoria to set
-	 */
-	private void setCategoria(String categoria) {
-		this.categoria = categoria;
+	private void setCategoria() {
+		if (getPeso() < 52.2) {
+			categoria = "invalido";
+//			System.out.println("Peso: "+getPeso()+" Categoria: "+categoria);
+		} else if (peso <= 70.3) {
+			categoria = "Leve";
+//			System.out.println("Peso: "+getPeso()+" Categoria: "+categoria);
+		} else if (peso <= 83.9) {
+			categoria = "Medio";
+//			System.out.println("Peso: "+getPeso()+" Categoria: "+categoria);
+		} else if (peso <= 120.2) {
+			categoria = "Pesado";
+//			System.out.println("Peso: "+getPeso()+" Categoria: "+categoria);
+		} else {
+			categoria = "invalido";
+//			System.out.println("Peso: "+getPeso()+" Categoria: "+categoria);
+		}
 	}
 
 	/**
@@ -108,6 +121,7 @@ public class ClasseDosLutadores implements AcoesLutadores {
 	 */
 	private void setVitorias(int vitorias) {
 		this.vitorias = vitorias;
+		System.out.println("ganhou !!!");
 	}
 
 	/**
@@ -122,6 +136,7 @@ public class ClasseDosLutadores implements AcoesLutadores {
 	 */
 	private void setDerrotas(int derrotas) {
 		this.derrotas = derrotas;
+		System.out.println("perdeu !!!");
 	}
 
 	/**
@@ -136,6 +151,7 @@ public class ClasseDosLutadores implements AcoesLutadores {
 	 */
 	private void setEmpates(int empates) {
 		this.empates = empates;
+		System.out.println("empatou !!!");
 	}
 
 	/**
@@ -149,47 +165,64 @@ public class ClasseDosLutadores implements AcoesLutadores {
 	 * @param derrotas
 	 * @param empates
 	 */
-	public ClasseDosLutadores(String nome, String nacionalidade, int idade, float altura, float peso, int vitorias,
-			int derrotas, int empates) {
+	public Lutador(
+			String nome, 
+			String nacionalidade, 
+			int idade, 
+			float altura, 
+			float peso, 
+			int vitorias,
+			int derrotas, 
+			int empates) {
 		super();
 		this.nome = nome;
 		this.nacionalidade = nacionalidade;
 		this.idade = idade;
 		this.altura = altura;
-		this.peso = peso;
+		this.setPeso(peso);
 		this.vitorias = vitorias;
 		this.derrotas = derrotas;
 		this.empates = empates;
 	}
 
 	@Override
-	public void apresentar() {
+	public  void apresentar() {
 		// TODO Auto-generated method stub
-
+		System.out.println("------------APRESENTAÇÃO");
+		System.out.println("Lutador: " + getNome());
+		System.out.println("País: " + getNacionalidade());
+		System.out.println(getIdade() + " anos.");
+		System.out.println("Pesando: " + getPeso() + " kg. Na CATEGORIA: "+getCategoria());
+		System.out.println("Ganhou: " + getVitorias());
+		System.out.println("Perdeu: " + getDerrotas());
+		System.out.println("Empatou: " + getEmpates());
 	}
 
 	@Override
 	public void status() {
 		// TODO Auto-generated method stub
-
+		System.out.println("------------STATUS");
+		System.out.println("Lutador: " + getNome()+" CAT: "+getCategoria());
+		System.out.println("V: " + getVitorias()+" D: "+getDerrotas()+" E: "+getEmpates());
+		System.out.println("------------STATUS");
 	}
 
 	@Override
 	public void ganharLuta() {
 		// TODO Auto-generated method stub
-
+		setVitorias(getVitorias() + 1);
 	}
 
 	@Override
 	public void perderLuta() {
 		// TODO Auto-generated method stub
-
+		setDerrotas(getDerrotas() + 1);
 	}
 
 	@Override
 	public void empatarLuta() {
 		// TODO Auto-generated method stub
-
+		setEmpates(getEmpates() + 1);
 	}
 
 }
