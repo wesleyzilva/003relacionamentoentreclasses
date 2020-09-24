@@ -1,6 +1,11 @@
 package relacionamentoentreclasses;
 
-public class Lutador implements Acoes {
+/*Classe encapsula dados e funcionalidades e 
+pode relacionar uma classe com outra.
+Ex:
+Agragação : 
+*/
+public class Lutador implements AcaoLutador {
 
 	private String nome;
 	private String nacionalidade;
@@ -12,81 +17,48 @@ public class Lutador implements Acoes {
 	private int derrotas;
 	private int empates;
 
-	/**
-	 * @return the nome
-	 */
 	private String getNome() {
 		return nome;
 	}
 
-	/**
-	 * @param nome the nome to set
-	 */
 	private void setNome(String nome) {
 		this.nome = nome;
 	}
 
-	/**
-	 * @return the nacionalidade
-	 */
 	private String getNacionalidade() {
 		return nacionalidade;
 	}
 
-	/**
-	 * @param nacionalidade the nacionalidade to set
-	 */
 	private void setNacionalidade(String nacionalidade) {
 		this.nacionalidade = nacionalidade;
 	}
 
-	/**
-	 * @return the idade
-	 */
 	private int getIdade() {
 		return idade;
 	}
 
-	/**
-	 * @param idade the idade to set
-	 */
 	private void setIdade(int idade) {
 		this.idade = idade;
 	}
 
-	/**
-	 * @return the altura
-	 */
 	private float getAltura() {
 		return altura;
 	}
 
-	/**
-	 * @param altura the altura to set
-	 */
 	private void setAltura(float altura) {
 		this.altura = altura;
 	}
 
-	/**
-	 * @return the peso
-	 */
 	private float getPeso() {
 		return peso;
 	}
 
-	/**
-	 * @param peso the peso to set
-	 */
 	private void setPeso(float peso) {
 		this.peso = peso;
 		setCategoria();
 	}
 
-	/**
-	 * @return the categoria
-	 */
-	private String getCategoria() {
+	public String getCategoria() {
 		return categoria;
 	}
 
@@ -109,62 +81,34 @@ public class Lutador implements Acoes {
 		}
 	}
 
-	/**
-	 * @return the vitorias
-	 */
+
 	private int getVitorias() {
 		return vitorias;
 	}
 
-	/**
-	 * @param vitorias the vitorias to set
-	 */
 	private void setVitorias(int vitorias) {
 		this.vitorias = vitorias;
 		System.out.println("ganhou !!!");
 	}
 
-	/**
-	 * @return the derrotas
-	 */
 	private int getDerrotas() {
 		return derrotas;
 	}
 
-	/**
-	 * @param derrotas the derrotas to set
-	 */
 	private void setDerrotas(int derrotas) {
 		this.derrotas = derrotas;
 		System.out.println("perdeu !!!");
 	}
 
-	/**
-	 * @return the empates
-	 */
 	private int getEmpates() {
 		return empates;
 	}
 
-	/**
-	 * @param empates the empates to set
-	 */
 	private void setEmpates(int empates) {
 		this.empates = empates;
 		System.out.println("empatou !!!");
 	}
 
-	/**
-	 * @param nome
-	 * @param nacionalidade
-	 * @param idade
-	 * @param altura
-	 * @param peso
-	 * @param categoria
-	 * @param vitorias
-	 * @param derrotas
-	 * @param empates
-	 */
 	public Lutador(
 			String nome, 
 			String nacionalidade, 
@@ -186,8 +130,7 @@ public class Lutador implements Acoes {
 	}
 
 	@Override
-	public  void apresentar() {
-		// TODO Auto-generated method stub
+	public void apresentar() {
 		System.out.println("------------APRESENTAÇÃO");
 		System.out.println("Lutador: " + getNome());
 		System.out.println("País: " + getNacionalidade());
@@ -200,7 +143,6 @@ public class Lutador implements Acoes {
 
 	@Override
 	public void status() {
-		// TODO Auto-generated method stub
 		System.out.println("------------STATUS");
 		System.out.println("Lutador: " + getNome()+" CAT: "+getCategoria());
 		System.out.println("V: " + getVitorias()+" D: "+getDerrotas()+" E: "+getEmpates());
@@ -209,19 +151,16 @@ public class Lutador implements Acoes {
 
 	@Override
 	public void ganharLuta() {
-		// TODO Auto-generated method stub
 		setVitorias(getVitorias() + 1);
 	}
 
 	@Override
 	public void perderLuta() {
-		// TODO Auto-generated method stub
 		setDerrotas(getDerrotas() + 1);
 	}
 
 	@Override
 	public void empatarLuta() {
-		// TODO Auto-generated method stub
 		setEmpates(getEmpates() + 1);
 	}
 

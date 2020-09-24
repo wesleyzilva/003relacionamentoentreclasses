@@ -1,6 +1,6 @@
 package relacionamentoentreclasses;
 
-public interface Acoes {
+public interface AcaoLutador {
 
 	void apresentar();
 	void status();
